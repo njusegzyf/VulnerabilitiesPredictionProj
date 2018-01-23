@@ -1,0 +1,51 @@
+<configuration debug="false" scan="false" scanPeriod="30 seconds">
+    <!-- See http://blog.csdn.net/haidage/article/details/6794509 and http://logback.qos.ch/manual/configuration.html -->
+    <property name="APP_Name" value="ExpDebug"/>
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+    <contextName>${APP_Name}</contextName>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are  by default assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!-- Filters can be added to Appender instances -->
+        <!-- Custom filter -->
+        <!-- <filter class="logTest.logbackFilters$SampleFilter" /> -->
+
+        <!-- Level filter -->
+        <!--  LevelFilter filters events based on exact level matching.
+        If the event's level is equal to the configured level, the filter accepts or denies the event,
+        depending on the configuration of the onMatch and onMismatch properties. -->
+        <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+        <!--<level>INFO</level>-->
+        <!--<onMatch>ACCEPT</onMatch>-->
+        <!--<onMismatch>DENY</onMismatch>-->
+        <!--</filter>-->
+
+        <!-- Threshold filter -->
+        <!-- The ThresholdFilter filters events below the specified threshold.
+        For events of level equal or above the threshold, ThresholdFilter will respond NEUTRAL when its decide() method is invoked.
+        However, events with a level below the threshold will be denied. -->
+        <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+        <!--<level>INFO</level>-->
+        <!--</filter>-->
+
+        <file>slf4jLogFile.log</file>
+        <append>true</append>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <!--<appender-ref ref="FILE" />-->
+    </root>
+</configuration>

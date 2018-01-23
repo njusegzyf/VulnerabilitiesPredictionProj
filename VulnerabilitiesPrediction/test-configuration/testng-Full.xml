@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FullSuite" parallel="tests" thread-count="2" verbose="1">
+  <test name="FullTest">
+    <!--<groups>-->
+    <!--<define name="allFunctional">-->
+    <!--<include name="functional.*"/>-->
+    <!--</define>-->
+
+    <!--<define name="all">-->
+    <!--<include name="allFunctional"/>-->
+    <!--<include name="check-in"/>-->
+    <!--<include name="unit"/>-->
+    <!--</define>-->
+
+    <!--<run>-->
+    <!--<include name="all"/>-->
+    <!--<exclude name="nonTest"/>-->
+    <!--<exclude name="state.unfinished"/>-->
+    <!--<exclude name="state.broken"/>-->
+    <!--</run>-->
+    <!--</groups>-->
+
+    <packages>
+      <package name="nju.seg.zyf.*"/>
+    </packages>
+  </test> <!-- FullTest -->
+
+  <test name="JUnitTest" junit="true" enabled="false">
+  </test>
+</suite> <!-- FullSuite -->

@@ -1,0 +1,3 @@
+http://ics-cert.us-cert.gov	//meta[@name='description']&content
+http://www.kb.cert.org	//div[@id='vulnerability-note-content']//table[1]//p
+http://securitytracker.com	//table[@width='100%'][3]/tbody/tr[9]
